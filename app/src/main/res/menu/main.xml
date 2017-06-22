@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_mymusic"
+        android:icon="@drawable/pztb"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_hotmusic"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        android:icon="@drawable/xctb"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        android:icon="@drawable/xjtb"
+        app:showAsAction="always" />
+</menu>

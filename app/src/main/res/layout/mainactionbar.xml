@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal" android:layout_width="fill_parent"
+    android:layout_height="60dp"
+    android:background="@color/colorPrimaryDark"
+    android:id="@+id/mainbar">
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="60dp">
+        <ImageButton
+            android:id="@+id/bt_celan_main"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginBottom="14dp"
+            android:layout_marginRight="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/actionbar_menu"
+            android:onClick="bt_celan_mainc"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/bt_music_main"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/actionbar_music_selected"/>
+        <ImageButton
+            android:id="@+id/bt_discover_main"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/actionbar_discover_normal"/>
+
+        <ImageButton
+            android:id="@+id/bt_friend_main"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/actionbar_friends_normal"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:clipToPadding="true"
+        android:weightSum="1">
+
+        <ImageButton
+            android:id="@+id/bt_search_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/actionbar_search"></ImageButton>
+    </LinearLayout>
+
+</RelativeLayout>

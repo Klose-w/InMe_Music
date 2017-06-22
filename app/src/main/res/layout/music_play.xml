@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:circle_seekbar="http://schemas.android.com/apk/res-auto"
+
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="60dp">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/rv_listplay"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginRight="114dp"
+        ></android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="#ffffff"
+        android:layout_alignParentRight="true">
+        <com.example.wade.inme.UIwedget.CircleSeekBar
+            android:layout_marginRight="0dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:id="@+id/bt_play_main"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/play"
+
+             />
+        <ImageButton
+            android:id="@+id/iv_allmusic_main"
+            android:layout_width="34dp"
+            android:layout_height="28dp"
+            android:background="@drawable/btmlay_icn_addlist"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+</RelativeLayout>

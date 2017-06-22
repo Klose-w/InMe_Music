@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_scr_hh"
+    tools:context="com.example.wade.inme.Activity.ScreenActivity">
+<ImageView
+
+    android:background="#aaaaaa"
+    android:id="@+id/iv_screen_all"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2">
+        <TextClock
+            android:format24Hour="HH:mm"
+            android:format12Hour="hh:mm"
+            android:textColor="#ffffff"
+            android:textSize="46sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextClock
+            android:layout_marginTop="2dp"
+            android:format24Hour="MM月dd日 EEEE"
+            android:format12Hour="MM月dd日 EEEE"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_scr_name"
+            android:layout_marginTop="5dp"
+            android:text="华序梦"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_scr_art"
+            android:layout_marginTop="2dp"
+            android:text="HITA"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_scr_lyric"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:text="无歌词"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
+        android:maxWidth="220dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:layout_width="fill_parent"
+        android:layout_height="110dp">
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="100dp">
+            <ImageButton
+                android:id="@+id/ib_scr_last"
+                android:layout_gravity="center"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/a2z"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="100dp">
+            <ImageButton
+                android:id="@+id/ib_scr_play"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/a2s"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="100dp">
+            <ImageButton
+                android:id="@+id/ib_scr_next"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/a2o"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="100dp">
+            <ImageButton
+                android:id="@+id/ib_scr_love"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/a2k"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:text=">>>滑动解锁"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fc0000</color>
+    <color name="colorPrimaryDark">#fa0000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorLove">#444444</color>
+    <color name="colorpitong">#bbbbbb</color>
+    <color name="colorblack">#000000</color>
+    <color name="wight">#ffffff</color>
+    <color name="nom">#ffdddd</color>
+</resources>

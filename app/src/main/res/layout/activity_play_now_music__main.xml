@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.wade.inme.Activity.PlayNowMusic_Main">
+    <ImageView
+        android:background="#aaaaaa"
+        android:id="@+id/relativelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp"
+       >
+        <include
+            android:clickable="true"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/lyriclist"
+            android:id="@+id/include3"
+            android:layout_marginBottom="140dp"
+            android:layout_marginTop="40dp" />
+        <android.support.v4.view.ViewPager
+
+            android:clickable="true"
+            android:id="@+id/vp_disk"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/include2"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:id="@+id/rl_title"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp">
+        <LinearLayout
+            android:background="#00000000"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            >
+            <ImageButton
+                android:layout_gravity="center"
+                android:id="@+id/ib_backpalynow"
+                android:layout_marginLeft="10dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/actionbar_back"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_title_playnow"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:text="白头吟"/>
+                <TextView
+                    android:textSize="14sp"
+                    android:id="@+id/tv_name_playnow"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:textColor="#dddddd"
+                    android:text="HITA"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        <ImageButton
+            android:id="@+id/ib_fengxiang_playnow"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/a4r"/>
+    </RelativeLayout>
+
+<include
+
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    layout="@layout/music_dddd"
+    android:layout_above="@+id/ly_pre_below"
+    android:layout_alignParentStart="true"
+    android:id="@+id/include2" />
+
+<LinearLayout
+    android:id="@+id/ly_pre_below"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true">
+    <RelativeLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        >
+        <TextView
+            android:layout_marginTop="12dp"
+            android:id="@+id/tv_nowpress"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"/>
+        <SeekBar
+            android:maxHeight="2.0dip"
+            android:minHeight="2.0dip"
+            style="Widget.SeekBar.Normal"
+            android:max="100"
+            android:id="@+id/sb_musicpre"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/tv_musiclong"
+            android:layout_toRightOf="@id/tv_nowpress"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="12dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/tv_musiclong"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="04:22"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginBottom="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp">
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="60dp">
+            <ImageButton
+                android:id="@+id/ib_play_sx"
+                android:layout_gravity="center"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/a_v"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="50dp">
+            <ImageButton
+                android:id="@+id/ib_play_last"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/sn"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="50dp">
+            <ImageButton
+                android:id="@+id/ib_play_play"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/a8n"/>
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="50dp">
+            <ImageButton
+                android:id="@+id/ib_play_next"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/sk"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="60dp">
+            <ImageButton
+                android:id="@+id/ib_play_more"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/aak"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="70dp"
+            android:layout_width="90dp"
+            android:layout_height="130dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="115dp"
+            android:layout_alignParentTop="true"
+            android:id="@+id/iv_bar_zhuan"
+
+            android:layout_gravity="center"
+            android:background="@drawable/aal"/>
+
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.wade.inme.Activity.LocalMusic">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/tv_local_dq"
+            android:gravity="center"
+            android:text="单曲"
+            android:textColor="#ff0000"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_local_gs"
+            android:gravity="center"
+            android:text="歌手"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_local_zj"
+            android:gravity="center"
+            android:text="专辑"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_local_wjj"
+            android:gravity="center"
+            android:text="文件夹"
+            android:layout_weight="1"
+            android:layout_width="1dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+        <ImageView
+            android:id="@+id/iv_list_huadong"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_weight="1"
+            android:scaleType="matrix"
+            android:background="@drawable/icon_list_huadong"/>
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_local_music"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        ></android.support.v4.view.ViewPager>
+</LinearLayout>

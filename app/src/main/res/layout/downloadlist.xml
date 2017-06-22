@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="160dp">
+    <TextView
+        android:id="@+id/tv_num_ti"
+        android:layout_marginLeft="10dp"
+        android:gravity="center|left"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:text="相似歌曲:"/>
+<ListView
+    android:id="@+id/lv_down"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="100dp"
+    ></ListView>
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:weightSum="1"
+    android:descendantFocusability="blocksDescendants">
+    <RelativeLayout
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="3dp">
+        <ImageView
+            android:id="@+id/iv_list_back_pager"
+            android:background="#333333"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            />
+        <ImageView
+            android:id="@+id/iv_list_icon_pager"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="13dp"
+            android:layout_marginRight="13dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/note_btn_love"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginRight="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp">
+        <TextView
+            android:layout_marginTop="13dp"
+            android:id="@+id/tv_list_label_pager"
+            android:layout_gravity="center|left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="本地音乐"
+            android:textColor="#000000"
+            android:textSize="15sp"/>
+        <TextView
+            android:layout_marginTop="8dp"
+            android:id="@+id/tv_list_num_pager"
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0首"
+            android:textSize="10sp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:gravity="center|right"
+        >
+
+        <ImageButton
+            android:id="@+id/ib_list_more"
+            android:layout_alignParentRight="true"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:focusable="false"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/list_icn_more" />
+    </RelativeLayout>
+
+</LinearLayout>
