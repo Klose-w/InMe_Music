@@ -29,6 +29,7 @@ public class MusicInfor implements Serializable {
     int Songsecond;
     int biaoji;
     public MusicInfor(String son, String soi,int soc,String sori,String sob,String sod,String su,String sa,String soa){
+        SongId=Long.parseLong(soi);
         biaoji=1;
         SongName=son;
         Songid=soi;

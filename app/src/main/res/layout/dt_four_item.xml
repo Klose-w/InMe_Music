@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_height="18dp"
+            android:layout_width="2dp"
+            android:background="#E40000"/>
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/tv_dt4_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="热门分类"/>
+        <ImageView
+            android:id="@+id/recommend_iv_dt4"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/a7_" />
+    </LinearLayout>
+    <ListView
+        android:layout_marginTop="7dp"
+        android:id="@+id/lv_dt4_1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"></ListView>
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_height="18dp"
+            android:layout_width="2dp"
+            android:background="#E40000"/>
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/tv_dt4_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="更多分类"/>
+        <ImageView
+            android:id="@+id/recommend_iv_dt42"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/a7_" />
+    </LinearLayout>
+    <ListView
+        android:layout_marginTop="7dp"
+        android:id="@+id/lv_dt4_2"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"></ListView>
+</LinearLayout>

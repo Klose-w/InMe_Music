@@ -7,7 +7,7 @@
     android:id="@+id/rl_scr_hh"
     tools:context="com.example.wade.inme.Activity.ScreenActivity">
 <ImageView
-
+    android:scaleType="fitXY"
     android:background="#aaaaaa"
     android:id="@+id/iv_screen_all"
     android:layout_width="fill_parent"

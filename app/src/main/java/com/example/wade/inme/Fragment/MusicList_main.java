@@ -88,23 +88,44 @@ public class MusicList_main extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        localMusicAdapter=new LocalMusicAdapter(getActivity());
+        localMusicAdapter=new LocalMusicAdapter(getActivity(),getActivity().getWindow());
         View view=inflater.inflate(R.layout.fragment_music_list_main, container, false);
         toplistview=(ListView)view.findViewById(R.id.lv_mymusic_mm_fm);
         toplistview.setAdapter(localMusicAdapter);
         toplistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
                 //Toast.makeText(getActivity(),position+"",Toast.LENGTH_SHORT).show();
                 switch(position){
                     case 5:
                         localMusicAdapter.isZhanKai();
                         break;
                     case 0:
-                        FragmentManager fm = getActivity().getSupportFragmentManager();
-                        FragmentTransaction transaction = fm.beginTransaction();
                         transaction.replace(R.id.fm_main, new LocalMusicFragment());
                         transaction.commit();
+                        break;
+                    case 1:
+                        transaction.replace(R.id.fm_main, new Recently(1));
+                        transaction.commit();
+                        break;
+                    case 2:
+                        transaction.replace(R.id.fm_main, new Recently(2));
+                        transaction.commit();
+                        break;
+                    case 3:
+                        transaction.replace(R.id.fm_main, new LocalMusicFragment());
+                        transaction.commit();
+                        break;
+                    case 4:
+                        transaction.replace(R.id.fm_main, new Recently(1));
+                        transaction.commit();
+                        break;
+                    default:
+                        transaction.replace(R.id.fm_main, new GdDiaplayFragment(position-6));
+                        transaction.commit();
+                        break;
                 }
             }
         });

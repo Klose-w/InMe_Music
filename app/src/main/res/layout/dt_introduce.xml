@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000"
+            android:text="电台内容介绍"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_int_dt_fl"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:text="分类:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_int_dt_mz"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:text="名字:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_int_dt_zx"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:text="最新:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_int_dt_dy"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:text="订阅:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_int_dt_jj"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:text="简介:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>

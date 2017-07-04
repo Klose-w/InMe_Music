@@ -21,8 +21,9 @@
                 android:textSize="16sp"
                 android:gravity="bottom"
                 android:textColor="#ffffff"
+                android:layout_marginRight="13dp"
                 android:layout_width="wrap_content"
-                android:layout_height="32dp"
+                android:layout_height="22dp"
                 android:text="洛阳夜雨"/>
             <TextView
                 android:id="@+id/tv_noti_songger"

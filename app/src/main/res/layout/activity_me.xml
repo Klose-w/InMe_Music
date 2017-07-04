@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        layout="@layout/fragment_me_top" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/bottom_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#DCDCDC"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_music"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:text="音乐"
+                android:textColor="#778899"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_trends"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:text="动态"
+                android:textColor="#778899"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_me"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:text="关于我"
+                android:textColor="#778899"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_cursor"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#CDCDCD"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/cursor_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+            </ImageView>
+        </LinearLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/myviewpager"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="12" >
+        </android.support.v4.view.ViewPager>
+
+    </LinearLayout>
+
+</LinearLayout>

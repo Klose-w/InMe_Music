@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#ffffff"
+    android:descendantFocusability="blocksDescendants">
+<LinearLayout
+    android:id="@+id/ll_dt4_1"
+    android:clickable="true"
+    android:background="#ffffff"
+    android:layout_weight="1"
+    android:layout_width="1dp"
+    android:layout_height="50dp"
+    android:gravity="center|left"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_marginLeft="50dp"
+        android:id="@+id/iv_dt4_1"
+        android:background="@drawable/ag7"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+    <TextView
+        android:id="@+id/tv_dt4_1"
+        android:layout_marginLeft="5dp"
+        android:text="有声书"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+    <View
+        android:background="#aaaaaa"
+        android:layout_gravity="center"
+        android:layout_width="1dp"
+        android:layout_height="30dp"></View>
+    <LinearLayout
+        android:id="@+id/ll_dt4_2"
+        android:clickable="true"
+        android:background="#ffffff"
+        android:layout_weight="1"
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:gravity="center|left"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_marginLeft="50dp"
+            android:id="@+id/iv_dt4_2"
+            android:background="@drawable/ag7"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:id="@+id/tv_dt4_2"
+            android:layout_marginLeft="5dp"
+            android:text="知识技能"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

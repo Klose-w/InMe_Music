@@ -12,6 +12,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.wade.inme.InMeApplicacation;
+import com.example.wade.inme.JavaBean.MusicInfor;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +44,7 @@ public class DownloadService extends Service {
     ThreadPoolExecutor threadPoolExecutor;
     OkHttpClient client = new OkHttpClient();
     String filep;
+    InMeApplicacation inMeApplicacation;
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -53,8 +56,10 @@ public class DownloadService extends Service {
         super.onCreate();
         filep= Environment.getExternalStorageDirectory().toString()+ File.separator+"InMe/Music";
         threadPoolExecutor=new ThreadPoolExecutor(5, 5, 1, TimeUnit.SECONDS,new LinkedBlockingDeque<Runnable>(120));
+        inMeApplicacation=(InMeApplicacation)getApplicationContext();
     }
     public void ListAdd(String id,String name){
+
         downmusic(id,name);
 
     }
@@ -76,7 +81,7 @@ public class DownloadService extends Service {
         }
 
     }
-    public void downmusic(String id, String name) {
+    public void downmusic(final String id, String name) {
         String url1;
         url1 =" http://ting.baidu.com/data/music/links?songIds="+id;
         Log.e("kk", url1);
@@ -97,6 +102,9 @@ public class DownloadService extends Service {
                     String songbit=j2.getString("songPicRadio");
                     String songlrc=j2.getString("lrcLink");
                     String songLink=j2.getString("songLink");
+                    MusicInfor infor=new MusicInfor(j2.getString("songName"),j2.getString("albumName"),j2.getString("artistName")
+                    ,filep+"/music/"+songname,Long.parseLong(id),2400,22);
+                    inMeApplicacation.addListdown(infor);
                     Therad1 therad1=new Therad1();
                     therad1.chushi(songLink.replaceAll("////",""),songlrc.replaceAll("////",""),songname);
                     //therad1.start();

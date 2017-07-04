@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -73,7 +75,7 @@ public class Local_dq_fragment extends Fragment {
         TextView textView=(TextView)viewHeaderView.findViewById(R.id.tv_playall);
         textView.setText("(共"+inMeApplicacation.getLocalsize()+"首)");
         Lv_localmusic_dq.addHeaderView(viewHeaderView);
-        findMusicAdapter=new FindMusicAdapter(getActivity());
+        findMusicAdapter=new FindMusicAdapter(getActivity(), getActivity().getWindow());
         Lv_localmusic_dq.setAdapter(findMusicAdapter);
         Lv_localmusic_dq.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

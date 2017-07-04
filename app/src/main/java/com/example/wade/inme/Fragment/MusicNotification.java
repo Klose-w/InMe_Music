@@ -12,18 +12,22 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.RecyclerView;
 import android.widget.RemoteViews;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.wade.inme.Activity.PlayNowMusic_Main;
 import com.example.wade.inme.InMeApplicacation;
 import com.example.wade.inme.JavaBean.MusicInfor;
 import com.example.wade.inme.R;
 import com.example.wade.inme.Service.PentIntentService;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 
@@ -60,11 +64,21 @@ public class MusicNotification {
         nowMusic=inMeApplicacation.getNowmusic();
         rv.setTextViewText(R.id.tv_noti_name,nowMusic.getSongName());
         rv.setTextViewText(R.id.tv_noti_songger,nowMusic.getSongArtist()+"-"+nowMusic.getSongAlbum());
-        //if(nowMusic.getBiaoji()==0){
-            rv.setImageViewBitmap(R.id.iv_noti_play,getArtwork(nowMusic.getSongId()+""));
-       // }else {
-            //Glide.with(mContext).load(nowMusic.getSongbitmap()).into();
-       // }
+        if(nowMusic.getBiaoji()==0){
+        rv.setImageViewBitmap(R.id.iv_noti_play,getArtwork(nowMusic.getSongId()+""));
+       }else {
+            Glide.with(mContext).load(nowMusic.getSongbitmap()).asBitmap().into(new SimpleTarget<Bitmap>(){
+
+                @Override
+                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                    Bitmap bm=resource;
+                    ByteArrayOutputStream out=new ByteArrayOutputStream();
+                    bm.compress(Bitmap.CompressFormat.PNG,100,out);
+                    rv.setImageViewBitmap(R.id.iv_noti_play,bm);
+                    manager.notify(0,notification);
+                }
+            });
+        }
 
 
 

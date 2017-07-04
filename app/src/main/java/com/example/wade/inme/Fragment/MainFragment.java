@@ -34,7 +34,8 @@ import java.util.List;
  */
 public class MainFragment extends Fragment implements View.OnClickListener,ViewPager.OnPageChangeListener {
 
-
+   int One=0;
+    int Two=0;
     public MainFragment() {
         // Required empty public constructor
     }
@@ -52,7 +53,10 @@ public class MainFragment extends Fragment implements View.OnClickListener,ViewP
         MainFragment fragment = new MainFragment();
         return fragment;
     }
-
+    public MainFragment(int one,int two){
+        One=one;
+        Two=two;
+    }
     ImageButton bt_music;
     ImageButton bt_search;
     ImageButton bt_discover;
@@ -61,7 +65,7 @@ public class MainFragment extends Fragment implements View.OnClickListener,ViewP
     List<Fragment> fragments;
     MusicList_main fragment_musci;
     Musictop_online fragment_top;
-    Musictop_online fragment_top1;
+    ShareFragment fragment_top1;
     MainFragmentAdapter mainfragmentAdapter;
 
     @Override
@@ -93,6 +97,7 @@ public class MainFragment extends Fragment implements View.OnClickListener,ViewP
         bt_friends.setOnClickListener(this);
         vp_mainpager=(ViewPager)view.findViewById(R.id.vp_main_main);
         vp_mainpager.setOnPageChangeListener(this);
+
         initActivity();
 
         return view;
@@ -103,14 +108,15 @@ public class MainFragment extends Fragment implements View.OnClickListener,ViewP
 
     public void initActivity(){
         fragment_musci=new MusicList_main();
-        fragment_top=new Musictop_online();
-        fragment_top1=new Musictop_online();
+        fragment_top=new Musictop_online(Two);
+        fragment_top1=new ShareFragment();
         fragments=new ArrayList<Fragment>() ;
         fragments.add(fragment_musci);
         fragments.add(fragment_top);
         fragments.add(fragment_top1);
         mainfragmentAdapter=new MainFragmentAdapter(this.getChildFragmentManager(),fragments);
         vp_mainpager.setAdapter(mainfragmentAdapter);
+        vp_mainpager.setCurrentItem(One);
     }
     @Override
     public void onClick(View v) {

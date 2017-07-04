@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E6E6E6"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="341dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_zxbf"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:text="在线播放"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_xzyz"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:text="下载音质"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_qchc"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:text="清除缓存"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/tv_zhbdhsz"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:text="帐号绑定和设置"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_xzbyqhy"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:text="寻找并邀请好友"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_xxhyssz"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:text="消息和隐私设置"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/checkBox_WiFi"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                android:text="仅Wi-Fi下连网"
+                android:textSize="18sp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                android:text="使用2G/3G/4G网络播放歌曲"
+                android:textSize="18sp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:text="使用2G/3G/4G网络下载歌曲"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/checkBox_jdbfjm"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:layout_marginTop="8dp"
+                android:text="经典播放界面" />
+
+            <CheckBox
+                android:id="@+id/checkBox_kzcdxs"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:text="控制中心菜单显示”喜欢" />
+
+            <CheckBox
+                android:id="@+id/checkBox_spgc"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:text="锁屏歌词" />
+
+            <CheckBox
+                android:id="@+id/checkBox_gcfy"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:text="歌词翻译" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

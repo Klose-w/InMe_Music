@@ -16,8 +16,11 @@ import android.widget.Toast;
 import com.example.wade.inme.Activity.PlayNowMusic_Main;
 import com.example.wade.inme.Activity.ScreenActivity;
 import com.example.wade.inme.InMeApplicacation;
+import com.example.wade.inme.JavaBean.MusicInfor;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by wade on 2017/6/1.
@@ -32,7 +35,7 @@ public class MusicPlayService extends Service {
     boolean Isbroadcast=false;
     InMeApplicacation inMeApplicacation;
     broadcastTheard broadcast;
-
+    List<MusicInfor> recentlyPlay=new ArrayList<MusicInfor>();
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -71,9 +74,13 @@ public class MusicPlayService extends Service {
     }
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
+        inMeApplicacation.addListRecPlay();
         try {
             Isbroadcast=false;
             path=intent.getStringExtra("url");
+            if(path==""){
+                return super.onStartCommand(intent, flags, startId);
+            }
             Isplay=intent.getIntExtra("isplay",0);
         }catch (Exception e){
             return super.onStartCommand(intent, flags, startId);

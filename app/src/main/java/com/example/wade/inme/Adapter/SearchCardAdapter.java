@@ -14,21 +14,34 @@ import com.example.wade.inme.R;
  * Created by wade on 2017/6/21.
  */
 
-public class SearchCardAdapter extends RecyclerView.Adapter {
+public class SearchCardAdapter extends RecyclerView.Adapter implements View.OnClickListener{
     String[] title=new String[]{"剑魂","李一桐","向天再借","真正的快乐","周杰伦","小小天涯","再见了朋友","何处不古风","知了电台","射雕英雄传"};
     String[] search=new String[]{"洛阳夜雨","再逢明月照九州","猪八戒","射雕英雄传","李一桐"};
     Context mContext;
+    private OnItemClickListener onItemClickListener=null;
     public SearchCardAdapter(Context context){
         mContext=context;
     }
 
     @Override
+    public void onClick(View v) {
+        if(onItemClickListener!=null){
+            onItemClickListener.onItemClick(v,(int)v.getTag());
+        }
+    }
+
+    public static interface OnItemClickListener{
+        void onItemClick(View v,int position);
+    }
+    @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if(viewType==0){
             View view= LayoutInflater.from(mContext).inflate(R.layout.cardview_text_item,null);
+            view.setOnClickListener(this);
             return new MycardviewHolder(view);
         }else {
             View view= LayoutInflater.from(mContext).inflate(R.layout.searchlistjilu,null);
+            view.setOnClickListener(this);
             return new MycardviewHolder1(view);
         }
 
@@ -71,13 +84,17 @@ public class SearchCardAdapter extends RecyclerView.Adapter {
         if(holder instanceof MycardviewHolder){
             MycardviewHolder mycardviewHolder=(MycardviewHolder)holder;
             mycardviewHolder.Tv_card_name.setText(title[position]);
+            mycardviewHolder.itemView.setTag(position);
         }else {
             MycardviewHolder1 mycardviewHolder1=(MycardviewHolder1)holder;
             mycardviewHolder1.Tv_sear_dell.setText(search[position-10]);
+            mycardviewHolder1.itemView.setTag(position);
         }
 
     }
-
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.onItemClickListener=listener;
+    }
     @Override
     public int getItemCount() {
         return title.length+search.length;

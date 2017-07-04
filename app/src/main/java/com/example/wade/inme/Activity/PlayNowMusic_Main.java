@@ -20,7 +20,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -65,6 +67,7 @@ public class PlayNowMusic_Main extends AppCompatActivity implements View.OnClick
     ImageButton Ib_fengxiang_playnow;
     MusicInfor nowmusic;
     Bitmap bitmapback;
+    CircleImageView Cv_back_cir;
     int how_to_play;
     boolean Isplaying=false;
     PlaychangeBroad playchangeBroad;
@@ -78,6 +81,7 @@ public class PlayNowMusic_Main extends AppCompatActivity implements View.OnClick
     boolean whatNow=false;
     View view1;
     View view2;
+    boolean ib_fin=false;
     Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -163,10 +167,16 @@ public class PlayNowMusic_Main extends AppCompatActivity implements View.OnClick
         Ib_fengxiang_playnow.setOnClickListener(this);
         Tv_nowpress=(TextView)findViewById(R.id.tv_nowpress);
         Tv_musiclong=(TextView)findViewById(R.id.tv_musiclong);
+        Cv_back_cir=(CircleImageView)findViewById(R.id.cv_back_cir);
         view1=(View)findViewById(R.id.include2);
         view2=(View)findViewById(R.id.include3);
         //Ci_xuanzhuan_m=(CircleImageView)findViewById(R.id.ci_xuanzhuan_m);
         Iv_bar_zhuan=(ImageView)findViewById(R.id.iv_bar_zhuan);
+        Animation animation=AnimationUtils.loadAnimation(this,R.anim.tip4);
+        LinearInterpolator lin=new LinearInterpolator();
+        animation.setInterpolator(lin);
+        animation.setFillAfter(true);
+        Iv_bar_zhuan.setAnimation(animation);
         Sb_musicpre=(SeekBar)findViewById(R.id.sb_musicpre);
         Sb_musicpre.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -275,13 +285,25 @@ public class PlayNowMusic_Main extends AppCompatActivity implements View.OnClick
         if(Isplaying!=Isplay)
         {
             diskAdapter.setRotateAnimationstart(Isplay);
+           // diskAdapter=new DiskAdapter(this);
+            //Vp_disk.setAdapter(diskAdapter);
             if(Ib_play_play!=null){
                 if(Isplay){
                     Isplaying=true;
                     Ib_play_play.setBackgroundResource(R.drawable.a8l);
+                    Animation animation=AnimationUtils.loadAnimation(this,R.anim.tip3);
+                    LinearInterpolator lin=new LinearInterpolator();
+                    animation.setInterpolator(lin);
+                    animation.setFillAfter(true);
+                    Iv_bar_zhuan.setAnimation(animation);
                 }else{
                     Ib_play_play.setBackgroundResource(R.drawable.a8n);
                     Isplaying=false;
+                    Animation animation=AnimationUtils.loadAnimation(this,R.anim.tip2);
+                    LinearInterpolator lin=new LinearInterpolator();
+                    animation.setInterpolator(lin);
+                    animation.setFillAfter(true);
+                    Iv_bar_zhuan.setAnimation(animation);
                 }
             }
         }
@@ -331,8 +353,10 @@ public class PlayNowMusic_Main extends AppCompatActivity implements View.OnClick
                 intent.putExtra("url",inMeApplicacation.getNowmusic().getSongUrl());
                 if(Isplaying){
                     intent.putExtra("isplay",0);
+
                 }else{
                     intent.putExtra("isplay",1);
+
                 }
 
                 startService(intent);
@@ -360,24 +384,26 @@ public class PlayNowMusic_Main extends AppCompatActivity implements View.OnClick
 
                 }
                 inMeApplicacation.setHow_to_play(how_to_play);
-                if(how_to_play/2==0){
-                    Vp_disk.setVisibility(View.GONE);
-                    Iv_bar_zhuan.setVisibility(View.GONE);
-                    view1.setVisibility(View.GONE);
-                    view2.setVisibility(View.VISIBLE);
-                }else {
+                break;
+            case R.id.ib_fengxiang_playnow:
+                if(ib_fin){
+                    ib_fin=false;
+                    Cv_back_cir.setVisibility(View.VISIBLE);
                     Vp_disk.setVisibility(View.VISIBLE);
                     Iv_bar_zhuan.setVisibility(View.VISIBLE);
                     view1.setVisibility(View.VISIBLE);
                     view2.setVisibility(View.GONE);
+                    Ib_fengxiang_playnow.setBackgroundResource(R.drawable.a8g);
+                }else {
+                    ib_fin=true;
+                    Ib_fengxiang_playnow.setBackgroundResource(R.drawable.a8i);
+                    Cv_back_cir.setVisibility(View.GONE);
+                    Vp_disk.setVisibility(View.GONE);
+                    Iv_bar_zhuan.clearAnimation();
+                    Iv_bar_zhuan.setVisibility(View.GONE);
+                    view1.setVisibility(View.GONE);
+                    view2.setVisibility(View.VISIBLE);
                 }
-
-                break;
-            case R.id.include3:
-                Vp_disk.setVisibility(View.VISIBLE);
-                Iv_bar_zhuan.setVisibility(View.VISIBLE);
-                view1.setVisibility(View.VISIBLE);
-                view2.setVisibility(View.GONE);
                 break;
         }
     }
@@ -386,6 +412,8 @@ public class PlayNowMusic_Main extends AppCompatActivity implements View.OnClick
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(playchangeBroad);
+
+
     }
     int nowpage=0;
     @Override
@@ -422,6 +450,7 @@ public class PlayNowMusic_Main extends AppCompatActivity implements View.OnClick
                 }
             }).start();
 
+
         }
     }
 
@@ -430,6 +459,12 @@ public class PlayNowMusic_Main extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
+       /* if(Isplaying==true){
+            Animation animation1=AnimationUtils.loadAnimation(this,R.anim.tip2);
+            LinearInterpolator lin1=new LinearInterpolator();
+            animation1.setInterpolator(lin1);
+            animation1.setFillAfter(true);
+            Iv_bar_zhuan.setAnimation(animation1);
+        }*/
     }
 }

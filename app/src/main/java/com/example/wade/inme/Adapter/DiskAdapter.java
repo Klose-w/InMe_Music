@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,7 +44,6 @@ public class DiskAdapter extends PagerAdapter implements Serializable {
     MusicInfor nextMusic;
     MusicInfor nowMusic;
     InMeApplicacation inMeApplicacation;
-    RotateAnimation rotateAnimation;
     int shuxi=0;
 
     public DiskAdapter(Context context){
@@ -53,12 +54,7 @@ public class DiskAdapter extends PagerAdapter implements Serializable {
         initMusic();
         initViews();
     }
-    public void Animation(){
-       rotateAnimation=new RotateAnimation(0,360, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-        rotateAnimation.setRepeatCount(-1);
-        rotateAnimation.setDuration(20000);
-        rotateAnimation.setFillAfter(false);
-    }
+
     public DiskAdapter(List<View> listplay, Context context){
         this.listplay=listplay;
         mContext=context;
@@ -114,8 +110,7 @@ public class DiskAdapter extends PagerAdapter implements Serializable {
         lastView = LayoutInflater.from(mContext).inflate(
                 R.layout.diskview, null);
         Iv_fengmian_main2=(CircleImageView)lastView.findViewById(R.id.ci_xuanzhuan_m);
-        Animation();
-        Iv_fengmian_main3.setAnimation(rotateAnimation);
+
        // rotateAnimation.start();
 
 
@@ -129,10 +124,18 @@ public class DiskAdapter extends PagerAdapter implements Serializable {
 
     }
     public  void setRotateAnimationstart(boolean isstart){
+
+
         if(isstart){
-            rotateAnimation.start();
+            Log.e("dsfkjhdkfhdk","dhfgdhgjfd");
+            Animation animation= AnimationUtils.loadAnimation(mContext,R.anim.tip);
+            LinearInterpolator lin=new LinearInterpolator();
+            animation.setInterpolator(lin);
+            animation.setFillAfter(true);
+            Iv_fengmian_main3.setAnimation(animation);
+
         }else {
-            //rotateAnimation.
+            Iv_fengmian_main3.clearAnimation();
         }
        // notifyDataSetChanged();
 

@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.wade.inme.InMeApplicacation;
 import com.example.wade.inme.JavaBean.MusicInfor;
@@ -224,6 +225,7 @@ public class CharstopAdapter extends BaseAdapter {
                                     intent.putExtra("songid",songid);
                                     intent.putExtra("songname",songna);
                                     mContext.startService(intent);
+                                    Toast.makeText(mContext,"正在下载。。",Toast.LENGTH_LONG).show();
                                     popupdown.dismiss();
                                 }
                             });

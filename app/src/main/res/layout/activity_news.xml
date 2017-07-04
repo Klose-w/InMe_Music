@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.example.wade.inme.Activity.NewsActivity">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="#ff0000"
+        android:gravity="center|left"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_backmain_news"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/actionbar_back" />
+
+        <TextView
+            android:id="@+id/tv_news_tt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="本地音乐"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center|right">
+
+            <ImageButton
+                android:id="@+id/ib_local_music_more"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/play_icn_more_prs" />
+        </RelativeLayout>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title_newsA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="今日新闻标题栏"
+                android:textColor="#000000"
+                android:textSize="27dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_time_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"
+                    android:text="2017-6-25 中国新闻网  国内最新 " />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_zhengwen_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="艰苦奋斗好高级客服电话就赶快"
+                android:textColor="#aadbae"
+                android:textSize="18sp" />
+
+            <WebView
+                android:id="@+id/wb_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></WebView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/a0h" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignTop="@+id/imageView3"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toEndOf="@+id/imageView3"
+                    android:gravity="center"
+                    android:text="阅读人数(123)" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="原文阅读"
+                    android:textColor="#ff0000" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

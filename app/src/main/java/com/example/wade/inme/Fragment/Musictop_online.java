@@ -39,9 +39,9 @@ public class Musictop_online extends Fragment implements View.OnClickListener,Vi
     TextView textView_ph;
     ImageView Iv_list_huadong;
     private List<Fragment> listmusic;
-    kongbai kongbai1;
-    kongbai kongbai2;
-    kongbai kongbai3;
+    NewsFragment newsFragment;
+    RecommendFragment recommendFragment;
+    DiantaiFragment diantaiFragment;
     MusicChartsFragment onlineCharts;
     LocalMusicFragment.LocalpagerAdapter localpagerAdapter;
     private int bmpw = 0; // 游标宽度
@@ -49,11 +49,14 @@ public class Musictop_online extends Fragment implements View.OnClickListener,Vi
     private int currIndex = 0;
     ViewPager viewPager;
     int screenW;
-
+    int Two=0;
     public Musictop_online() {
         // Required empty public constructor
     }
-
+    public Musictop_online(int two) {
+        // Required empty public constructor
+        Two=two;
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -95,17 +98,18 @@ public class Musictop_online extends Fragment implements View.OnClickListener,Vi
     }
     public void initview(){
         listmusic=new ArrayList<Fragment>();
-        kongbai1=new kongbai();
-        kongbai2=new kongbai();
-        kongbai3=new  kongbai();
+        newsFragment=new NewsFragment();
+        recommendFragment=new RecommendFragment();
+        diantaiFragment=new DiantaiFragment();
         onlineCharts=new MusicChartsFragment();
-        listmusic.add(kongbai1);
-        listmusic.add(kongbai2);
-        listmusic.add(kongbai3);
+        listmusic.add(recommendFragment);
+        listmusic.add(newsFragment);
+        listmusic.add(diantaiFragment);
         listmusic.add(onlineCharts);
         initCursorPos();
         localpagerAdapter=new LocalMusicFragment.LocalpagerAdapter(getParentFragment().getChildFragmentManager(),listmusic);
         viewPager.setAdapter(localpagerAdapter);
+        viewPager.setCurrentItem(Two);
 
     }
     public void initCursorPos() {

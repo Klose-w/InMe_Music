@@ -3,14 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fl_all"
-    android:orientation="vertical"
-    android:visibility="gone">
+    android:orientation="vertical">
     <!--android:visibility="gone"-->
 
     >
+    <include
+
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        layout="@layout/popdialog"
+        android:id="@+id/in_pop1" />
 
     <ListView
-
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/lv_music_charts">

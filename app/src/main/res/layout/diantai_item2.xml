@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="70dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="6dp"
+        android:text="每天听些好节目"/>
+    <TextView
+        android:id="@+id/tv_hyh"
+        android:clickable="true"
+        android:text="换一换"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="7dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:background="@drawable/zt"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="57dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="18dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp" />
+</RelativeLayout>
+    <ListView
+        android:id="@+id/lv_dt_list"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"></ListView>
+</LinearLayout>

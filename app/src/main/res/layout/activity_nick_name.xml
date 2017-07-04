@@ -1,0 +1,132 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".Activity.NickNameActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/natease"
+        android:fitsSystemWindows="true"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:src="@drawable/lj" />
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:textColor="@color/white"
+            android:text="设置昵称" />
+
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+    <ImageView
+        android:id="@+id/nicheng_iv"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/a0e" />
+
+    <TextView
+        android:id="@+id/nicheng_tv_remember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/nicheng_tv_remember"
+        android:textColor="#EF9E9A" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/nicheng_iv_name"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:src="@drawable/a3" />
+
+            <EditText
+                android:id="@+id/nicheng_et_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@null"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="请输入昵称"
+                android:textSize="12sp"
+                android:textColorHint="#D1D5DC" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2px"
+            android:layout_marginTop="3dp"
+            android:background="#E0E0E0" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/nicheng_btn_start"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_button_login_red"
+        android:padding="3dip"
+        android:text="@string/nicheng_btn_start"
+        android:textColor="@android:color/white"
+        android:textSize="17sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical" >
+
+        <CheckBox
+            android:id="@+id/nicheng_tv_agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:textSize="12sp"
+            android:text="@string/nicheng_tv_agree" />
+
+        <TextView
+            android:id="@+id/nicheng_tv_xieyi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_checked"
+            android:layout_marginLeft="5dp"
+            android:textSize="10sp"
+            android:text="@string/nicheng_tv_xieyi" />
+
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

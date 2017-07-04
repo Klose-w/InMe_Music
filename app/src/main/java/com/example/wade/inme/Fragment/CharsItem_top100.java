@@ -22,11 +22,13 @@ import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.wade.inme.Adapter.CharstopAdapter;
 import com.example.wade.inme.InMeApplicacation;
 import com.example.wade.inme.R;
@@ -76,6 +78,24 @@ public class CharsItem_top100 extends Fragment {
         Tv_title_chars=(TextView)view.findViewById(R.id.tv_title_chars);
         linearLayout=(LinearLayout)view.findViewById(R.id.ll_top_chars);
         View viewheader=LayoutInflater.from(getContext()).inflate(R.layout.charstop_lan,null);
+        ImageView i=(ImageView)viewheader.findViewById(R.id.iv_back_top);
+        switch (Num-1){
+            case 0:
+                Glide.with(getContext()).load(R.drawable.top).into(i);
+                break;
+            case 1:
+                Glide.with(getContext()).load(R.drawable.top3).into(i);
+                break;
+            case 2:
+                Glide.with(getContext()).load(R.drawable.top2).into(i);
+                break;
+            case 3:
+                Glide.with(getContext()).load(R.drawable.top4).into(i);
+                break;
+            case 4:
+                Glide.with(getContext()).load(R.drawable.top5).into(i);
+                break;
+        }
         Ib_backmain=(ImageButton)view.findViewById(R.id.ib_backmain);
         Ib_backmain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +103,7 @@ public class CharsItem_top100 extends Fragment {
 
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.fm_main,new MainFragment());
+                transaction.replace(R.id.fm_main,new MainFragment(1,3));
                 transaction.commit();
             }
         });

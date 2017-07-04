@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/recommend_ll_new_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+        
+        <View 
+            android:layout_height="18dp"
+            android:layout_width="2dp"
+            android:background="#E40000"/>
+
+        <TextView
+            android:id="@+id/recommend_tv_new_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="万千风格"/>
+
+        <ImageView
+            android:id="@+id/recommend_iv_new_more"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/a7_" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/recommend_ll_new1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:focusable="false"
+                    android:id="@+id/recommend_iv_new1"
+                    android:layout_width="match_parent"
+                    android:layout_height="114dp"
+                    android:background="@drawable/yh"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp" />
+
+                <TextView
+                    android:id="@+id/recommend_tv_new_name1"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="10sp" />
+                
+                <TextView
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:id="@+id/recommend_tv_new_context1"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginBottom="6dp"
+
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                 android:id="@+id/recommend_ll_new2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:focusable="false"
+                    android:id="@+id/recommend_iv_new2"
+                    android:layout_width="match_parent"
+                    android:layout_height="114dp"
+                    android:background="@drawable/yh"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"/>
+
+                <TextView
+                    android:id="@+id/recommend_tv_new_name2"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="10sp" />
+                <TextView
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:id="@+id/recommend_tv_new_context2"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginBottom="6dp"
+
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                 android:id="@+id/recommend_ll_new3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:focusable="false"
+                    android:id="@+id/recommend_iv_new3"
+                    android:layout_width="match_parent"
+                    android:layout_height="114dp"
+                    android:background="@drawable/yh"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp" />
+
+                <TextView
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:id="@+id/recommend_tv_new_name3"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                   android:layout_marginTop="6dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+
+                    android:textSize="10sp" />
+                <TextView
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:id="@+id/recommend_tv_new_context3"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginBottom="6dp"
+
+                    android:textSize="8sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                 android:id="@+id/recommend_ll_new4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:focusable="false"
+                    android:id="@+id/recommend_iv_new4"
+                    android:layout_width="match_parent"
+                    android:layout_height="114dp"
+                    android:background="@drawable/yh"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp" />
+
+                <TextView
+                    android:id="@+id/recommend_tv_new_name4"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="10sp" />
+                <TextView
+                    android:id="@+id/recommend_tv_new_context4"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                 android:id="@+id/recommend_ll_new5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:focusable="false"
+                    android:id="@+id/recommend_iv_new5"
+                    android:layout_width="match_parent"
+                    android:layout_height="114dp"
+                    android:background="@drawable/yh"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp" />
+
+                <TextView
+                    android:id="@+id/recommend_tv_new_name5"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="10sp" />
+                <TextView
+                    android:id="@+id/recommend_tv_new_context5"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                 android:id="@+id/recommend_ll_new6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:focusable="false"
+                    android:id="@+id/recommend_iv_new6"
+                    android:layout_width="match_parent"
+                    android:layout_height="114dp"
+                    android:background="@drawable/yh"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"/>
+
+                <TextView
+                    android:id="@+id/recommend_tv_new_name6"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="10sp" />
+                <TextView
+                    android:id="@+id/recommend_tv_new_context6"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="8sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -19,21 +20,27 @@ import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.example.wade.inme.Adapter.MyDatabaseHelper;
+import com.example.wade.inme.JavaBean.GeDanBean;
 import com.example.wade.inme.JavaBean.MusicInfor;
+import com.example.wade.inme.JavaBean.UserBean;
 import com.example.wade.inme.Network.DiskLruCache;
 import com.example.wade.inme.Service.MusicPlayService;
 
 import net.qiujuer.genius.blur.StackBlur;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,18 +55,26 @@ public class InMeApplicacation extends Application {
     MusicInfor nextmusic;
     List<MusicInfor> localmusicList;
     List<MusicInfor> playmusicList;
+    List<MusicInfor> lisrDowlist=new ArrayList<>();
     int localsize;
     int playsize;
-    int nowplay=5;
+    int nowplay=0;
     int last;
     int next;
     private int how_to_play=0;
     Bitmap bm = null;
     DiskLruCache diskLruCache=null;
+    List<MusicInfor> lisrRecPaly=new ArrayList<>();
+    List<GeDanBean> geDanBeanList=new ArrayList<>();
+    MyDatabaseHelper databaseHelper;;
+    SQLiteDatabase db;
+    private UserBean userBean;
+    private String url = "http://www.jumpingbear.cn/ListenerMusic/";
+    private String phone;
+    private String passwd;
     public int getHow_to_play() {
         return how_to_play;
     }
-
     public void setHow_to_play(int how_to_play) {
         this.how_to_play = how_to_play;
         setlon();
@@ -100,7 +115,64 @@ public class InMeApplicacation extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        getLocalSongsInfo(getApplicationContext());
+        databaseHelper=new MyDatabaseHelper(this,"InMeDataBase.db",null,1);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                lisrRecPaly=new ArrayList<MusicInfor>();
+                lisrDowlist=new ArrayList<MusicInfor>();
+                getLocalSongsInfo(getApplicationContext());
+                initList();
+                initGeDan();
+            }
+        }).start();
+
+    }
+
+    public void initList(){
+        db=initDataBase();
+        Cursor cursor=db.query("Reclist",null,null,null,null,null,null);
+        if(cursor.moveToLast()){
+            do{
+                if(cursor.getInt(cursor.getColumnIndex("Biaoji"))==0){
+                    MusicInfor m=new MusicInfor(cursor.getString(cursor.getColumnIndex("SongName")),
+                            cursor.getString(cursor.getColumnIndex("SongArtist")),
+                            cursor.getString(cursor.getColumnIndex("SongAlbum")),
+                            cursor.getString(cursor.getColumnIndex("SongUrl")),
+                            cursor.getLong(cursor.getColumnIndex("SongId")),
+                            cursor.getLong(cursor.getColumnIndex("SongDuration")),
+                            cursor.getLong(cursor.getColumnIndex("SongSize")));
+                    lisrRecPaly.add(m);
+                }else {
+                    MusicInfor m=new MusicInfor(cursor.getString(cursor.getColumnIndex("SongName")),
+                            cursor.getString(cursor.getColumnIndex("SongId")),
+                            cursor.getInt(cursor.getColumnIndex("SongSize")),
+                            cursor.getString(cursor.getColumnIndex("Songerid")),
+                            cursor.getString(cursor.getColumnIndex("Songbitmap")),
+                            null,
+                            cursor.getString(cursor.getColumnIndex("SongUrl")),
+                            cursor.getString(cursor.getColumnIndex("SongArtist")),
+                            cursor.getString(cursor.getColumnIndex("SongAlbum"))
+                            );
+                    lisrRecPaly.add(m);
+                }
+            }while (cursor.moveToPrevious());
+        }
+
+        Cursor cursor1=db.query("Downlist",null,null,null,null,null,null);
+        if(cursor1.moveToLast()){
+            do{
+                    MusicInfor m=new MusicInfor(cursor1.getString(cursor1.getColumnIndex("SongName")),
+                            cursor1.getString(cursor1.getColumnIndex("SongArtist")),
+                            cursor1.getString(cursor1.getColumnIndex("SongAlbum")),
+                            cursor1.getString(cursor1.getColumnIndex("SongUrl")),
+                            cursor1.getLong(cursor1.getColumnIndex("SongId")),
+                            cursor1.getLong(cursor1.getColumnIndex("SongDuration")),
+                            cursor1.getLong(cursor1.getColumnIndex("SongSize")));
+                    lisrDowlist.add(m);
+
+            }while (cursor1.moveToPrevious());
+        }
     }
 
     public DiskLruCache getDiskLruCache() {
@@ -453,6 +525,30 @@ public class InMeApplicacation extends Application {
         getApplicationContext().startService(intent);
     }
 
+    public void initGeDan(){
+        Cursor cursor=db.query("Gdlist",null,null,null,null,null,null);
+        if(!cursor.moveToFirst()){
+            List<MusicInfor> kl=new ArrayList<>();
+            GeDanBean geDanBean=new GeDanBean(0,kl,"我喜欢的音乐",BitmapFactory.decodeResource(getResources(),R.drawable.note_btn_love),"侠客孤");
+            geDanBeanList.add(geDanBean);
+        }
+        if(cursor.moveToFirst()){
+            do{
+                //Toast.makeText(getApplicationContext(),"1111",Toast.LENGTH_LONG).show();
+                byte data[] = cursor.getBlob(cursor.getColumnIndex("Gdlist"));
+                ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(data);
+                try {
+                    ObjectInputStream inputStream = new ObjectInputStream(arrayInputStream);
+                    GeDanBean g = (GeDanBean) inputStream.readObject();
+                    geDanBeanList.add(g);
+                    inputStream.close();
+                    arrayInputStream.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }while (cursor.moveToNext());
+        }
+    }
     public MusicInfor getLastmusic() {
         return lastmusic;
     }
@@ -522,4 +618,77 @@ public class InMeApplicacation extends Application {
     public void setLocalmusicList(List<MusicInfor> localmusicList) {
         this.localmusicList = localmusicList;
     }
+
+    public List<MusicInfor> getLisrRecPaly() {
+        return lisrRecPaly;
+    }
+
+    public void setLisrRecPaly(List<MusicInfor> lisrRecPaly) {
+        this.lisrRecPaly = lisrRecPaly;
+    }
+
+    public void addListRecPlay(){
+        for(int i=0;i<lisrRecPaly.size();i++){
+            if(lisrRecPaly.get(i).getSongId()==nowmusic.getSongId()){
+                lisrRecPaly.remove(i);
+                break;
+            }
+        }
+        lisrRecPaly.add(nowmusic);
+
+    }
+
+    public List<GeDanBean> getGeDanBeanList() {
+        return this.geDanBeanList;
+    }
+
+    public void setGeDanBeanList(List<GeDanBean> geDanBeanList) {
+        this.geDanBeanList = geDanBeanList;
+        Toast.makeText(getApplicationContext(),this.geDanBeanList.size()+"lkl",Toast.LENGTH_LONG).show();
+    }
+
+    public List<MusicInfor> getLisrDowlist() {
+        return lisrDowlist;
+    }
+    public void addListdown(MusicInfor m){
+        lisrDowlist.add(m);
+    }
+    public void setLisrDowlist(List<MusicInfor> lisrDowlist) {
+        this.lisrDowlist = lisrDowlist;
+    }
+    public SQLiteDatabase initDataBase(){
+        return  databaseHelper.getWritableDatabase();
+    }
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public UserBean getUserBean() {
+        return userBean;
+    }
+
+    public void setUserBean(UserBean userBean) {
+        this.userBean = userBean;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getPasswd() {
+        return passwd;
+    }
+
+    public void setPasswd(String passwd) {
+        this.passwd = passwd;
+    }
+
 }

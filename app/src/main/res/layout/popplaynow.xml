@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_ppp"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+    <ImageView
+        android:background="@drawable/q0"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        android:id="@+id/imageView2" />
+    <TextView
+        android:id="@+id/tv_play_zt"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:textColor="#000000"
+        android:text="循环播放 (101)"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
+    <TextView
+        android:id="@+id/tv_clear_popmian"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="清空"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+    <ImageView
+        android:id="@+id/iv_clear_popmian"
+        android:background="@drawable/a8w"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_toLeftOf="@+id/tv_clear_popmian"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+    <TextView
+        android:id="@+id/tv_shou_popmian"
+        android:layout_toLeftOf="@+id/iv_clear_popmian"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="收藏"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+    <ImageView
+        android:background="@drawable/a09"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_toLeftOf="@+id/tv_shou_popmian"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+</RelativeLayout>
+    <ListView
+        android:id="@+id/iv_pop_playnow"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        ></ListView>
+</LinearLayout>
